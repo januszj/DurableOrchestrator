@@ -16,7 +16,7 @@ namespace DurableOrchestrator
             )
         {
             log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
-            string instanceId = await orchestrationClient.StartNewAsync(nameof(DurableOrchestrator), name);
+            string instanceId = await orchestrationClient.StartNewAsync(nameof(DurableOrchestrator), null, name);
 
             log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
         }

@@ -20,6 +20,7 @@ namespace DurableOrchestrator
 
             if (isFileClean)
             {
+                log.LogWarning($"File {blobName} is clean moving to clean storage !!.");
                 await context.CallActivityAsync<bool>(nameof(TransferToCleanStorageFuntion), blobName);
             }
             else
